@@ -1,0 +1,161 @@
+2026-06-15 01:48:52,347 | INFO     | __main__ — Bot started. Polling…
+2026-06-15 01:48:52,766 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getMe "HTTP/1.1 200 OK"
+2026-06-15 01:48:52,858 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/deleteWebhook "HTTP/1.1 200 OK"
+2026-06-15 01:48:52,860 | INFO     | apscheduler.scheduler — Scheduler started
+2026-06-15 01:48:52,861 | INFO     | telegram.ext.Application — Application started
+2026-06-15 01:49:03,309 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:49:05,458 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:49:05,462 | ERROR    | telegram.ext.Application — No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/home/jamshid/PycharmProjects/JobSpy/.venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 1234, in process_update
+    await coroutine
+  File "/home/jamshid/PycharmProjects/JobSpy/.venv/lib/python3.12/site-packages/telegram/ext/_basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jamshid/PycharmProjects/JobSpy/jobspy/files/bot.py", line 147, in cmd_start
+    _ensure_user(update)
+  File "/home/jamshid/PycharmProjects/JobSpy/jobspy/files/bot.py", line 101, in _ensure_user
+    db.update_user(user.id, {
+  File "/home/jamshid/PycharmProjects/JobSpy/jobspy/files/db.py", line 68, in update_user
+    get_user(user_id)           # creates the record
+    ^^^^^^^^^^^^^^^^^
+  File "/home/jamshid/PycharmProjects/JobSpy/jobspy/files/db.py", line 59, in get_user
+    _save(USERS_FILE, db)
+  File "/home/jamshid/PycharmProjects/JobSpy/jobspy/files/db.py", line 39, in _save
+    with open(path, "w", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/users.json'
+2026-06-15 01:49:15,605 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:49:25,738 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:49:36,079 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:49:46,317 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:49:56,456 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:50:06,584 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:50:16,733 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:50:26,862 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:50:37,040 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:50:47,243 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:50:57,582 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:51:07,719 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:51:17,860 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:51:28,002 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:51:38,237 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:51:48,373 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:51:58,516 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:52:08,852 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:52:19,005 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:52:29,229 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:52:39,376 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:53:02,402 | INFO     | __main__ — Bot started. Polling…
+2026-06-15 01:53:02,823 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getMe "HTTP/1.1 200 OK"
+2026-06-15 01:53:02,926 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/deleteWebhook "HTTP/1.1 200 OK"
+2026-06-15 01:53:02,931 | INFO     | apscheduler.scheduler — Scheduler started
+2026-06-15 01:53:02,931 | INFO     | telegram.ext.Application — Application started
+2026-06-15 01:53:07,218 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:53:07,424 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:15,828 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:53:16,230 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-06-15 01:53:16,441 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:16,442 | INFO     | scraper — Scraping for user 577643147 | config: {'site_name': ['linkedin', 'indeed'], 'search_term': 'AI Engineer', 'google_search_term': 'Internship Software Developer jobs in Germany', 'location': 'Germany', 'results_wanted': 50, 'country_indeed': 'germany', 'job_type': 'fulltime', 'linkedin_fetch_description': False}
+2026-06-15 01:53:33,916 | INFO     | scraper — Returning 35 new jobs for user 577643147.
+2026-06-15 01:53:33,920 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:53:34,264 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:34,366 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:34,570 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:34,677 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:34,779 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:34,978 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:35,278 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:35,488 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:35,694 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:35,906 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:36,107 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:36,305 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:36,513 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:36,715 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:36,835 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:37,027 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:37,427 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:37,539 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:37,744 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:38,143 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:38,257 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:38,453 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:38,765 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:38,976 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:39,187 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:39,373 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:39,493 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:39,683 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:39,981 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:40,096 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:40,199 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:40,398 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:40,602 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:40,807 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:40,909 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:41,223 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:41,422 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:53:44,082 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:53:54,219 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:54:04,357 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:54:14,504 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:54:24,633 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:54:34,771 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:54:44,908 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:54:55,022 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:55:05,182 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:55:15,422 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:55:25,561 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:55:35,698 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:55:41,431 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:55:41,739 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-06-15 01:55:41,938 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:55:41,940 | INFO     | scraper — Scraping for user 577643147 | config: {'site_name': ['linkedin', 'indeed'], 'search_term': 'AI Engineer', 'google_search_term': 'Internship Software Developer jobs in Germany', 'location': 'Germany', 'results_wanted': 50, 'country_indeed': 'germany', 'job_type': 'fulltime', 'linkedin_fetch_description': False}
+2026-06-15 01:56:00,174 | INFO     | scraper — Returning 5 new jobs for user 577643147.
+2026-06-15 01:56:00,178 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:56:00,585 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:56:00,685 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:56:00,788 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:56:00,898 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:56:00,992 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:56:01,094 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:56:01,197 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:56:06,314 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:56:06,314 | INFO     | telegram.ext.Application — Application is stopping. This might take a moment.
+2026-06-15 01:56:06,315 | INFO     | apscheduler.scheduler — Scheduler has been shut down
+2026-06-15 01:56:06,325 | INFO     | telegram.ext.Application — Application.stop() complete
+2026-06-15 01:56:10,028 | INFO     | __main__ — Bot started. Polling…
+2026-06-15 01:56:10,616 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getMe "HTTP/1.1 200 OK"
+2026-06-15 01:56:10,717 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/deleteWebhook "HTTP/1.1 200 OK"
+2026-06-15 01:56:10,720 | INFO     | apscheduler.scheduler — Scheduler started
+2026-06-15 01:56:10,720 | INFO     | telegram.ext.Application — Application started
+2026-06-15 01:56:21,171 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:56:28,230 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:56:28,551 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:56:29,868 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:56:29,964 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-06-15 01:56:30,174 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:56:30,177 | INFO     | scraper — Scraping for user 577643147 | config: {'site_name': ['linkedin', 'indeed'], 'search_term': 'AI Engineer', 'google_search_term': 'Internship Software Developer jobs in Germany', 'location': 'Germany', 'results_wanted': 50, 'country_indeed': 'germany', 'job_type': 'fulltime', 'linkedin_fetch_description': False}
+2026-06-15 01:56:55,948 | INFO     | scraper — Returning 18 new jobs for user 577643147.
+2026-06-15 01:56:55,953 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:56:56,600 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:56:56,801 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/sendMessage "HTTP/1.1 200 OK"
+2026-06-15 01:56:56,804 | ERROR    | telegram.ext.Application — No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/home/jamshid/PycharmProjects/JobSpy/.venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 1234, in process_update
+    await coroutine
+  File "/home/jamshid/PycharmProjects/JobSpy/.venv/lib/python3.12/site-packages/telegram/ext/_basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jamshid/PycharmProjects/JobSpy/jobspy/files/bot.py", line 319, in button_router
+    await cmd_run(update, context)
+  File "/home/jamshid/PycharmProjects/JobSpy/jobspy/files/bot.py", line 219, in cmd_run
+    text = scraper.format_job(job)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jamshid/PycharmProjects/JobSpy/jobspy/files/scraper.py", line 86, in format_job
+    lines.append(f'🔗 Apply here:'+url)
+                 ~~~~~~~~~~~~~~~~~^~~~
+TypeError: can only concatenate str (not "float") to str
+2026-06-15 01:57:06,115 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"
+2026-06-15 01:57:16,254 | INFO     | httpx — HTTP Request: POST https://api.telegram.org/bot8797208946:AAGzULpRlsWUe7_MRm7Zy1wc1UotSKOIIL4/getUpdates "HTTP/1.1 200 OK"

@@ -1,0 +1,4 @@
+python-telegram-bot==20.7
+python-jobspy
+apscheduler==3.10.4
+python-dotenv==1.0.0

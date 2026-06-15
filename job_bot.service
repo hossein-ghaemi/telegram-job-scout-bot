@@ -1,0 +1,15 @@
+[Unit]
+Description=Telegram Job Scout Bot
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_LINUX_USER
+WorkingDirectory=/path/to/telegram_job_bot
+ExecStart=/path/to/venv/bin/python bot.py
+Restart=on-failure
+RestartSec=10
+EnvironmentFile=/path/to/telegram_job_bot/.env
+
+[Install]
+WantedBy=multi-user.target
