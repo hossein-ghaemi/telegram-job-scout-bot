@@ -4,14 +4,14 @@
     "username": "HosseinGhaemi22",
     "first_name": "Hossein",
     "created_at": "2026-06-14T23:53:07.222465",
-    "last_active": "2026-06-14T23:56:29.966867",
-    "total_jobs_found": 58,
+    "last_active": "2026-06-15T10:41:09.799152",
+    "total_jobs_found": 173,
     "search_config": {
       "site_name": [
         "linkedin",
         "indeed"
       ],
-      "search_term": "AI Engineer",
+      "search_term": "Software Engineer",
       "google_search_term": "Internship Software Developer jobs in Germany",
       "location": "Germany",
       "results_wanted": 50,
