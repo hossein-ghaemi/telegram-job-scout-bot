@@ -2,10 +2,21 @@
 
 Scrapes LinkedIn & Indeed and sends only **new** jobs to your Telegram.
 
+## Use the bot
+
+The bot is live on Telegram: **[@jam_job_finder_bot](https://t.me/jam_job_finder_bot)**
+
+1. Open [t.me/jam_job_finder_bot](https://t.me/jam_job_finder_bot) (or search `@jam_job_finder_bot` in Telegram)
+2. Press **Start** (or send `/start`)
+3. Tap **⚙️ Configure Search** to set your job title, location, job type, etc.
+4. Tap **▶️ Run Now** (or send `/run`) — you'll receive every job posted in the last 24 hours that you haven't seen yet
+
+No installation needed. The sections below are only for running your own copy.
+
 ## Project Structure
 
 ```
-telegram_job_bot/
+telegram-job-scout-bot/
 ├── bot.py          # Main bot — commands, conversation handlers, button router
 ├── scraper.py      # jobspy wrapper + duplicate filter + message formatter
 ├── db.py           # JSON database layer (users + seen jobs)
@@ -74,7 +85,7 @@ sudo journalctl -u job_bot -f
 | `search_term`              | string  | `AI Engineer`                                |
 | `google_search_term`       | string  | `Internship Data Science jobs Germany`       |
 | `location`                 | string  | `Berlin` or `Germany`                        |
-| `results_wanted`           | number  | `50`                                         |
+| `results_wanted`           | number  | `50` (total, split across sites)                                       |
 | `country_indeed`           | string  | `germany`                                    |
 | `job_type`                 | string  | `fulltime` / `parttime` / `internship`       |
 | `linkedin_fetch_description` | bool  | `yes` / `no`                                 |
@@ -83,7 +94,7 @@ sudo journalctl -u job_bot -f
 
 Add to crontab to run every 6 hours:
 ```
-0 */6 * * * cd /path/to/telegram_job_bot && /path/to/venv/bin/python -c "
+0 */6 * * * cd /path/to/telegram-job-scout-bot && /path/to/venv/bin/python -c "
 import asyncio
 from telegram import Bot
 from dotenv import load_dotenv
@@ -97,6 +108,7 @@ async def run():
         jobs = scraper.fetch_new_jobs(int(uid))
         for job in jobs:
             await bot.send_message(chat_id=int(uid), text=scraper.format_job(job), parse_mode='HTML', disable_web_page_preview=True)
+            db.mark_seen(int(uid), [scraper.job_key(job)])
 
 asyncio.run(run())
 "
