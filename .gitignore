@@ -2,3 +2,7 @@
 logs
 data
 job_bot.service
+__pycache__/
+.idea/
+.venv/
+venv/

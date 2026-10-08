@@ -4,6 +4,8 @@ All config flow uses pure CallbackQueryHandler + context.user_data.
 No ConversationHandler — works from both /config command and menu buttons.
 """
 
+import asyncio
+import html
 import logging
 import os
 from dotenv import load_dotenv
@@ -24,6 +26,7 @@ import scraper
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
+os.makedirs("logs", exist_ok=True)
 logging.basicConfig(
     format="%(asctime)s | %(levelname)-8s | %(name)s — %(message)s",
     level=logging.INFO,
@@ -32,6 +35,7 @@ logging.basicConfig(
         logging.StreamHandler(),
     ],
 )
+logging.getLogger("httpx").setLevel(logging.WARNING)  # request URLs contain the bot token
 logger = logging.getLogger(__name__)
 
 # ── Search parameters ─────────────────────────────────────────────────────────
@@ -127,7 +131,7 @@ def _config_summary(user_id: int) -> str:
         val = cfg.get(key, "—")
         if isinstance(val, list):
             val = ", ".join(val)
-        lines.append(f"  {meta['label']}: <code>{val}</code>")
+        lines.append(f"  {meta['label']}: <code>{html.escape(str(val))}</code>")
     return "\n".join(lines)
 
 
@@ -146,7 +150,7 @@ def _parse_value(raw: str, param_type: str):
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     context.user_data.clear()   # reset any pending config state
     _ensure_user(update)
-    name = update.effective_user.first_name or "there"
+    name = html.escape(update.effective_user.first_name or "there")
     await update.message.reply_text(
         f"👋 Hey <b>{name}</b>! I'm your <b>Job Scout Bot</b>.\n\n"
         "I scrape LinkedIn & Indeed and send only <i>new</i> jobs — no duplicates.\n\n"
@@ -205,7 +209,18 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ── Scrape helper (shared by button + command) ────────────────────────────────
 
 async def _do_scrape(context: ContextTypes.DEFAULT_TYPE, user_id: int, chat_id: int):
-    new_jobs = scraper.fetch_new_jobs(user_id)
+    try:
+        # jobspy is blocking — run it in a thread so the bot keeps serving others
+        new_jobs = await asyncio.to_thread(scraper.fetch_new_jobs, user_id)
+    except Exception as e:
+        logger.error("jobspy scrape failed for user %s: %s", user_id, e)
+        await context.bot.send_message(
+            chat_id=chat_id,
+            text="⚠️ The job search failed (the job sites may be rate-limiting).\nPlease try again in a few minutes.",
+            reply_markup=_main_menu_keyboard(),
+        )
+        return
+
     if not new_jobs:
         await context.bot.send_message(
             chat_id=chat_id,
@@ -219,6 +234,7 @@ async def _do_scrape(context: ContextTypes.DEFAULT_TYPE, user_id: int, chat_id: 
         text=f"🎉 Found <b>{len(new_jobs)}</b> new job(s)! Sending now…",
         parse_mode="HTML",
     )
+    sent = 0
     for job in new_jobs:
         try:
             await context.bot.send_message(
@@ -228,11 +244,19 @@ async def _do_scrape(context: ContextTypes.DEFAULT_TYPE, user_id: int, chat_id: 
                 disable_web_page_preview=True,
             )
         except Exception as e:
-            logger.warning("Failed to send job: %s", e)
+            logger.warning("Failed to send job %s: %s", scraper.job_key(job), e)
+            continue
+        # Only mark as seen once delivered, so failed jobs are retried next run
+        db.mark_seen(user_id, [scraper.job_key(job)])
+        sent += 1
 
+    if sent:
+        db.increment_jobs_found(user_id, sent)
+    failed = len(new_jobs) - sent
     await context.bot.send_message(
         chat_id=chat_id,
-        text=f"✅ Done! Sent <b>{len(new_jobs)}</b> job(s).",
+        text=f"✅ Done! Sent <b>{sent}</b> job(s)."
+             + (f"\n⚠️ {failed} failed to send and will be retried next run." if failed else ""),
         parse_mode="HTML",
         reply_markup=_main_menu_keyboard(),
     )
@@ -304,7 +328,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_text(
             f"⚙️ <b>{meta['label']}</b>\n\n"
             f"{meta['hint']}\n\n"
-            f"Current value: <code>{current}</code>\n\n"
+            f"Current value: <code>{html.escape(str(current))}</code>\n\n"
             f"✏️ <i>Type your new value below:</i>",
             parse_mode="HTML",
             reply_markup=_back_to_config_keyboard(),
@@ -338,7 +362,7 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     db.set_search_param(update.effective_user.id, key, value)
     context.user_data.pop("awaiting_param", None)
 
-    display = ", ".join(value) if isinstance(value, list) else str(value)
+    display = html.escape(", ".join(value) if isinstance(value, list) else str(value))
     await update.message.reply_text(
         f"✅ <b>{meta['label']}</b> set to: <code>{display}</code>\n\nSet another or run a search.",
         parse_mode="HTML",

@@ -36,8 +36,12 @@ def _load(path: str) -> dict:
 
 
 def _save(path: str, data: dict) -> None:
-    with open(path, "w", encoding="utf-8") as f:
+    # Write to a temp file then rename, so a crash mid-write can't corrupt the DB
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2, default=str)
+    os.replace(tmp, path)
 
 
 # ── User DB ───────────────────────────────────────────────────────────────────
