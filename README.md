@@ -4,14 +4,16 @@ Scrapes LinkedIn & Indeed and sends only **new** jobs to your Telegram.
 
 ## Use the bot
 
-The bot is live on Telegram: **[@jam_job_finder_bot](https://t.me/jam_job_finder_bot)**
+There is no public bot to join. You must create your own Telegram bot with
+[@BotFather](https://t.me/BotFather) and run this project with its token (see
+[Setup](#setup) below).
 
-1. Open [t.me/jam_job_finder_bot](https://t.me/jam_job_finder_bot) (or search `@jam_job_finder_bot` in Telegram)
+Once your bot is running:
+
+1. Open your bot in Telegram
 2. Press **Start** (or send `/start`)
 3. Tap **⚙️ Configure Search** to set your job title, location, job type, etc.
 4. Tap **▶️ Run Now** (or send `/run`) — you'll receive every job posted in the last 24 hours that you haven't seen yet
-
-No installation needed. The sections below are only for running your own copy.
 
 ## Project Structure
 
